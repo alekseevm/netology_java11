@@ -1,27 +1,28 @@
 package ru.netology.radio;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-@Test
+    @Test
     public void volumePlusOne() {
-    Radio radio = new Radio();
-    radio.setCurrentVolume(9);
-    radio.increaseVolume();
-    int expected = 10;
-    int actual = radio.currentVolume;
-    Assertions.assertEquals(expected, actual);
-}
+        Radio radio = new Radio();
+        radio.setCurrentVolume(9);
+        radio.increaseVolume();
+        int expected = 10;
+        int actual = radio.currentVolume;
+        Assertions.assertEquals(expected, actual);
+    }
 
-@Test
-public void volumeMinusOne() {
-    Radio radio = new Radio();
-    radio.setCurrentVolume(9);
-    radio.decreaseVolume();
-    int expected = 8;
-    int actual = radio.currentVolume;
-    Assertions.assertEquals(expected, actual);
-}
+    @Test
+    public void volumeMinusOne() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(9);
+        radio.decreaseVolume();
+        int expected = 8;
+        int actual = radio.currentVolume;
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void volumeOverMax() {
@@ -84,20 +85,20 @@ public void volumeMinusOne() {
     }
 
     @Test
-    public void StationOverTarget() {
+    public void StationOverRangeMax() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(11);
-        int expected = 9;
-        int actual = radio.maxRadioStation;
+        int expected = 0;
+        int actual = radio.currentRadioStation;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void StationMinTarget() {
+    public void StationOverRangeMin() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(-1);
         int expected = 0;
-        int actual = radio.minRadioStation;
+        int actual = radio.currentRadioStation;
         Assertions.assertEquals(expected, actual);
     }
 }
