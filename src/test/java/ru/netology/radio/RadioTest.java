@@ -67,7 +67,7 @@ public class RadioTest {
     @Test
     public void StationOverMax() {
         Radio radio = new Radio(11);
-        radio.setCurrentRadioStation(11);
+        radio.setCurrentRadioStation(10);
         radio.nextStation();
         int expected = 0;
         int actual = radio.currentRadioStation;
@@ -79,7 +79,7 @@ public class RadioTest {
         Radio radio = new Radio(11);
         radio.setCurrentRadioStation(0);
         radio.prevStation();
-        int expected = 11;
+        int expected = 10;
         int actual = radio.currentRadioStation;
         Assertions.assertEquals(expected, actual);
     }
