@@ -1,31 +1,24 @@
 package ru.netology.radio;
 
 public class Radio {
-    public int currentRadioStation;
-    public int maxRadioStation = 9;
-    public int minRadioStation = 0;
-    public int currentVolume;
-    public int maxVolume = 10;
-    public int minVolume = 0;
 
 
-    public void increaseVolume() {
-        setCurrentVolume(currentVolume + 1);
+    private int maxRadioStation = 9;
+    private int minRadioStation = 0;
+    int currentRadioStation = minRadioStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    int currentVolume;
+
+    public Radio(int qtyRadioStation) {
+        maxRadioStation = qtyRadioStation -1;
     }
 
-    public void decreaseVolume() {
-        setCurrentVolume(currentVolume - 1);
+    public Radio(){
+        this.minRadioStation = 0;
+        this.maxRadioStation = 9;
     }
 
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < minRadioStation) {
-            return;
-        }
-        if (newCurrentRadioStation > maxRadioStation) {
-            return;
-        }
-        currentRadioStation = newCurrentRadioStation;
-    }
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume > maxVolume) {
@@ -37,6 +30,24 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
+    public void increaseVolume() {
+        setCurrentVolume(currentVolume + 1);
+    }
+
+    public void decreaseVolume() {
+        setCurrentVolume(currentVolume - 1);
+    }
+
+
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
+        if (newCurrentRadioStation < minRadioStation) {
+            return;
+        }
+        if (newCurrentRadioStation > maxRadioStation) {
+            return;
+        }
+        currentRadioStation = newCurrentRadioStation;
+    }
     public void nextStation() {
         if (currentRadioStation >= maxRadioStation) {
             setCurrentRadioStation(minRadioStation);
